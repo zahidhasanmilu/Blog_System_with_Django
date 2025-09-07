@@ -1,5 +1,7 @@
 {% extends 'base/base_accounts.html' %}
 {% load static %}
+{% load socialaccount %}
+
 
 {% block title %}
 Login
@@ -66,6 +68,7 @@ Login
         <span class="txt1">
             Forgot
         </span>
+        
         <a class="txt2" href="#">
             Username / Password?
         </a>
@@ -78,4 +81,5 @@ Login
         </a>
     </div>
 </form>
+
 {% endblock content %}
