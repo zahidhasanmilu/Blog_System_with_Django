@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 CUSTOM_APPS = [
     'app_account.apps.AppAccountConfig',
+    'app_home.apps.AppHomeConfig',
 ]
 
 INSTALLED_APPS += CUSTOM_APPS
@@ -119,6 +120,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'  # যেখানে login হলে redirect হবে
+LOGOUT_REDIRECT_URL = 'login'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
