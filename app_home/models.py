@@ -4,6 +4,9 @@ from django.utils.text import slugify
 from django.conf import settings
 import os
 
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 def sanitize_filename(filename):
     forbidden = '<>:"/\\|?*'
     trans = str.maketrans({c: '_' for c in forbidden})
@@ -53,7 +56,7 @@ class Blog(models.Model):
     )
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(unique=True, blank=True, null=True, max_length=300)
-    content = models.TextField()
+    content = RichTextUploadingField() 
     category = models.ForeignKey(Category, related_name='category_blogs', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, related_name='tag_blogs')
     created_date = models.DateTimeField(auto_now_add=True)
